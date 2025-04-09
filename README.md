@@ -1,46 +1,72 @@
-# Object Tracking with 2 Servo and ESP 32 CAM
-I made a project where the camera (ESP32 cam) will follow the movement of an object using the help of 2 pan (Horizontal) and tilt (Vertical) servos. For example, when the object moves to the left, the camera will move to the left. For more information, you can watch my video : 
-https://www.youtube.com/watch?v=2TU9Fy5hJ-A
+# 🎯 Object Tracking with 2 Servos and ESP32-CAM
 
-Here is step by step to make this project:
-1. Wiring Project
+Saya membuat proyek di mana kamera (ESP32-CAM) akan mengikuti pergerakan objek menggunakan bantuan dua buah servo: satu untuk **pan (horizontal)** dan satu lagi untuk **tilt (vertikal)**. Misalnya, saat objek bergerak ke kiri, maka kamera juga akan ikut bergerak ke kiri.
 
-![Alt text](img/wiring.png)
+📺 **Tonton demonya di YouTube:**  
+[https://www.youtube.com/watch?v=2TU9Fy5hJ-A](https://www.youtube.com/watch?v=2TU9Fy5hJ-A)
 
-Tips:
-- Use 2 different battery sources. Each 5V. The first battery is for the ESP 32 cam, the second battery is for other electronics.
+---
 
-2. Upload Code to WEMOS
-Upload arduino.txt to your WEMOS
+## 🔧 Langkah-Langkah Pembuatan
 
-3. Upload Code to ESP 32 CAM
+### 1. Wiring Proyek
 
-![Alt text](img/ESP 32 CAM.png)
+![Wiring](img/wiring.png)
 
-Plug your ESP 32 cam then sellect the board. User example code from the ESP 32 CAM
+💡 **Tips:**
+- Gunakan **dua sumber daya (battery) terpisah**, masing-masing 5V:
+  - Satu untuk **ESP32-CAM**
+  - Satu lagi untuk **servo dan elektronik lainnya**
 
-4. Run Python Code in your computer
-Before arduino color tracking camera.py. make sure you read this:
+---
 
-change this code with your IP from ESP 32 cam
-```c
-ip_cam_url = "http://192.168.220.211:81/stream"  # Sesuaikan dengan IP ESP32-CAM
+### 2. Upload Code ke WEMOS
+
+Upload file `arduino.txt` ke board WEMOS Anda.
+
+---
+
+### 3. Upload Code ke ESP32-CAM
+
+![ESP32-CAM](img/ESP_32_CAM.png)
+
+- Hubungkan ESP32-CAM ke komputer
+- Pilih board yang sesuai di Arduino IDE
+- Gunakan contoh kode dari library ESP32-CAM
+
+---
+
+### 4. Jalankan Kode Python di Komputer
+
+Jalankan file `arduino color tracking camera.py`.
+
+Sebelumnya, pastikan beberapa hal berikut telah Anda sesuaikan:
+
+#### ✅ Ganti IP Kamera:
+```python
+ip_cam_url = "http://192.168.220.211:81/stream"  # Sesuaikan dengan IP ESP32-CAM Anda
 ```
 
-You can change the object color with this code:
-```c
-color = "#581845"
+#### ✅ Ubah Warna Objek yang Akan Dideteksi:
+```python
+color = "#581845"  # Ganti dengan warna target Anda (format HEX)
 ```
 
-I add this code because i got some delay with esp 32 cam and my bluetooth communication, so i make some delay to my code:
-
-```c
+#### ✅ Tambahkan Delay untuk Sinkronisasi (Opsional):
+Jika Anda mengalami delay antara ESP32-CAM dan komunikasi Bluetooth, Anda bisa menambahkan delay seperti berikut:
+```python
 current_time = time.time()
-    if current_time - last_sent >= 0.4:  # 400 ms = 0.4 detik
-        ser.write(('a' + str(int(Xposition)) + 'b' + str(int(Yposition))).encode())
-        last_sent = current_time
+if current_time - last_sent >= 0.4:  # 400 ms
+    ser.write(('a' + str(int(Xposition)) + 'b' + str(int(Yposition))).encode())
+    last_sent = current_time
 ```
 
-After all, you can run the code, then change value in the upper right corner to > 300, if not, the servo will not move.
+---
 
+## ⚙️ Pengaturan Tambahan
 
+- Setelah program berjalan, ubah **nilai di pojok kanan atas** GUI Python ke lebih dari `300` agar servo dapat bergerak.
+  
+---
+
+Jika ada pertanyaan atau ingin diskusi lebih lanjut, silakan tinggalkan komentar di video atau repository ini. Selamat mencoba! 🚀
