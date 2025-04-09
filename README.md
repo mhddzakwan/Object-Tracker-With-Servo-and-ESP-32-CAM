@@ -69,4 +69,4 @@ if current_time - last_sent >= 0.4:  # 400 ms
   
 ---
 
-Jika ada pertanyaan atau ingin diskusi lebih lanjut, silakan tinggalkan komentar di video atau repository ini. Selamat mencoba! 🚀
+Jika ada pertanyaan atau ingin diskusi lebih lanjut, silakan tinggalkan komentar di video, instagram: @dzakwan.pas dan repository ini. Selamat mencoba! 🚀
