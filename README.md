@@ -28,7 +28,7 @@ Upload file `arduino.txt` ke board WEMOS Anda.
 
 ### 3. Upload Code ke ESP32-CAM
 
-![ESP32-CAM](img/ESP_32_CAM.png)
+![ESP32-CAM](img/ESP_32_cam.png)
 
 - Hubungkan ESP32-CAM ke komputer
 - Pilih board yang sesuai di Arduino IDE
