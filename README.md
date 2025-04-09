@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=2TU9Fy5hJ-A
 
 Here is step by step to make this project:
 1. Wiring Project
-(Gambar)
+![Alt text](img/wiring.png)
 
 2. Upload Code to WEMOS
 3. Upload Code to ESP 32 CAM
